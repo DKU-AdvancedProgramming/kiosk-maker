@@ -19,7 +19,7 @@ public class Data {
             Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()) { // 한 라인 씩 읽어서 카테고리를 추가한다.
                 String line = scanner.nextLine();
-                String[] splitedStrings = line.split(" ,");
+                String[] splitedStrings = line.split(",");
                 Category category = new Category(splitedStrings[0]);
                 for (int i = 1; i < splitedStrings.length; i++) { // 카테고리에 아이템들 추가한다.
                     String name = splitedStrings[i].split(":")[0];
@@ -47,6 +47,10 @@ class Category {
         items.add(item);
     }
     public Item getItem(int index) { return items.get(index); }
+    
+    public int getItemCount() 
+		return items.size();
+	}
 }
 
 class Item {
