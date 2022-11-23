@@ -1,0 +1,23 @@
+1. 이름 바꾼 클래스
+Menu: 하나의 카테고리를 나타냄
+여러개 만들고 겹쳐놓는 클래스 
+	-> OverlappedCategoryPanel로 수정
+
+Category: 카테고리 선택하는 버튼 나열되어있는 클래스
+	-> SelectCategoryPanel로 수정
+
+
+2. 새로 만든 클래스
+Menu 클래스
+키오스크의 메뉴 하나를 나타냄
+
+
+3. 추가사항
+Data 클래스에서 데이터 읽어오기 기능 추가
+
+4. 변경사항
+화면 바꾸기 기능 CardLayout으로 구현
+
+
+
+
