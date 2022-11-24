@@ -13,7 +13,7 @@ public class MenuPanelOnly extends JPanel{
 	public MenuPanel(Category category) {
 		itemCount = category.getItemCount(); //추가한 메소드
 		menuButton = new JButton[itemCount]; //
-		setLayout(new GridLayout(3,3,4,4));
+		setLayout(new GridLayout(3,itemCount/3,4,4));
 		
 		for(int i=0; i<itemCount; i++) {
 			menuButton[i] = new JButton();
