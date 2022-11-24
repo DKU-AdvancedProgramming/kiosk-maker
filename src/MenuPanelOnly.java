@@ -1,8 +1,8 @@
-package zGUI;
+import data.Category;
+import data.Data;
 
 import java.awt.*;
 import java.io.File;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class MenuPanelOnly extends JPanel{
@@ -10,7 +10,7 @@ public class MenuPanelOnly extends JPanel{
 	public int itemCount;
 	
 	//카테고리 객체를 받아 객체 생성
-	public MenuPanel(Category category) {
+	public MenuPanelOnly(Category category) {
 		itemCount = category.getItemCount(); //추가한 메소드
 		menuButton = new JButton[itemCount]; //
 		setLayout(new GridLayout(3,itemCount/3,4,4));
@@ -38,9 +38,9 @@ public class MenuPanelOnly extends JPanel{
 		f.setLayout(null);
 		
 		int categoryCount = data.getCategoryCount();
-		MenuPanel[] menu= new MenuPanel[categoryCount]; 
+		MenuPanelOnly[] menu= new MenuPanelOnly[categoryCount];
 		for(int i=0; i<categoryCount; i++) {
-			menu[i] = new MenuPanel(data.getCategory(i));
+			menu[i] = new MenuPanelOnly(data.getCategory(i));
 			menu[i].setLocation(50, 50);
 			f.add(menu[i]);
 			if(i!=0)

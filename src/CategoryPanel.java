@@ -1,9 +1,11 @@
+import data.Category;
+
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
+import panels.Menu;
 
 /*
-Ä«Å×°í¸® ÇÏ³ªÀÇ Á¤º¸¸¦ ÀúÀåÇÏ´Â ÆÐ³Î
+Ä«ï¿½×°ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ð³ï¿½
 */
 class CategoryPanel extends JPanel{
 	public Menu[] MenuList = new Menu[9];

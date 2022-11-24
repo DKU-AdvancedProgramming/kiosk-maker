@@ -1,3 +1,4 @@
+package panels;
 
 import javax.swing.*;
 import java.awt.*;
@@ -5,7 +6,7 @@ import java.awt.*;
 button to store information about one menu
 
 */
-class Menu extends JButton{
+public class Menu extends JButton{
 	public String name;
 	public int price;
 	public ImageIcon image;

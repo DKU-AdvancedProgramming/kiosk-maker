@@ -1,3 +1,5 @@
+package data;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ public class Data {
     public Data(File file) {
         try {
             Scanner scanner = new Scanner(file);
-            while(scanner.hasNextLine()) { // 한 라인 씩 읽어서 카테고리를 추가한다.
+            while (scanner.hasNextLine()) { // 한 라인 씩 읽어서 카테고리를 추가한다.
                 String line = scanner.nextLine();
                 String[] splitedStrings = line.split(",");
                 Category category = new Category(splitedStrings[0]);
@@ -29,35 +31,16 @@ public class Data {
                 }
                 categories.add(category);
             }
-        } catch (IOException e) { e.printStackTrace(); }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public int getCategoryCount() { return categories.size(); }
-
-    public Category getCategory(int index) { return categories.get(index); }
-}
-
-class Category {
-    String name;
-    List<Item> items = new ArrayList<>();
-    public Category(String name) {
-        this.name = name;
+    public int getCategoryCount() {
+        return categories.size();
     }
-    public void add(Item item) {
-        items.add(item);
-    }
-    public Item getItem(int index) { return items.get(index); }
-    
-    public int getItemCount() 
-		return items.size();
-	}
-}
 
-class Item {
-    public String name;
-    public int price;
-    public Item(String name, int price) {
-        this.name = name;
-        this.price = price;
+    public Category getCategory(int index) {
+        return categories.get(index);
     }
 }
