@@ -1,3 +1,6 @@
+package panels;
+
+import data.Data;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -6,7 +9,7 @@ import java.util.ArrayList;
 import java.io.File;
 
 public class MenuPanel extends JPanel {
-	private Data d = new Data(new File(>String file path name<));
+	private Data d = new Data(new File("FILE_PATH"));
 	private JPanel overlapped, select;
 	private CardLayout card;
 	//modifier

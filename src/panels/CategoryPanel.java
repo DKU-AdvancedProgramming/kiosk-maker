@@ -1,3 +1,7 @@
+package panels;
+
+import data.Category;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -14,7 +18,7 @@ class CategoryPanel extends JPanel{
 
 		for(int i=0 ; i<9 ; i++) {
 			MenuList[i] = new Menu(c.getItem(i).name,
-						c.getItem(i).price, >file path name<);
+						c.getItem(i).price, "filePath");
 			add(MenuList[i]);
 		}
 
