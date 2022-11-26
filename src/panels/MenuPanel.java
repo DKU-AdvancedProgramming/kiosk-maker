@@ -1,73 +1,55 @@
 package panels;
 
+import data.Category;
 import data.Data;
 
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.util.ArrayList;
 import java.io.File;
+import javax.swing.*;
 
-public class MenuPanel extends JPanel {
-	private Data d = new Data(new File("FILE_PATH"));
-	private JPanel overlapped, select;
-	private CardLayout card;
-	//modifier
-	public MenuPanel() {
-		setLayout(new BorderLayout());
-
-		select = new SelectCategoryPanel();
-		add(select, BorderLayout.NORTH);
-		overlapped = new OverlappedCategoryPanel();
-		add(overlapped, BorderLayout.CENTER);
-
-		setSize(400, 400);
-		setVisible(true);
-	}
-
-	//panel class in which display menus
-	class OverlappedCategoryPanel extends JPanel {
-		public ArrayList<CategoryPanel> OverlappedCategory = new ArrayList<>();
-
-		public OverlappedCategoryPanel() {
-			card = new CardLayout();
-			setLayout(card);
-
-			for(int i=0 ; i<d.getCategoryCount() ; i++) {
-				OverlappedCategory.add(new CategoryPanel(d.getCategory(i)));
-				add(d.getCategory(i).name, OverlappedCategory.get(i));
-			}
-
-			setSize(400,400);
-			setVisible(true);
-		}
-	}
-
-	//panel class in which choose category
-	class SelectCategoryPanel extends JPanel{
-		public ArrayList<JButton> categoryButtonList = new ArrayList<>();
+public class MenuPanel extends JPanel{
+	public JButton[] menuButton;
+	public int itemCount;
+	
+	//카테고리 객체를 받아 객체 생성
+	public MenuPanel(Category category) {
+		itemCount = category.getItemCount(); //추가한 메소드
+		menuButton = new JButton[itemCount]; //
+		setLayout(new GridLayout(3,itemCount/3,4,4));
 		
-		public SelectCategoryPanel() {
-			setLayout(new FlowLayout());
-			for(int i=0 ; i<d.getCategoryCount() ; i++) {
-				categoryButtonList.add(new JButton( d.getCategory(i).name ));
-				categoryButtonList.get(i).setBackground(Color.white);
-				categoryButtonList.get(i).addActionListener(new CategoryActionListener());
-				categoryButtonList.get(i).addActionListener(
-						new CategoryActionListener() );
-				add(categoryButtonList.get(i));
-			}
-			setVisible(true);
+		for(int i=0; i<itemCount; i++) {
+			menuButton[i] = new JButton();
+			menuButton[i].setLayout(new FlowLayout());
+			menuButton[i].add(new JLabel(category.getItem(i).name));
+			menuButton[i].add(new JLabel(Integer.toString(category.getItem(i).price)));
+			menuButton[i].setBackground(Color.WHITE);
+			add(menuButton[i]);
 		}
+		setVisible(true);
+		setSize(300,300);
 	}
-	//actionlistener, changes category
-	class CategoryActionListener implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JButton b = (JButton)e.getSource();
-			card.show(overlapped, b.getActionCommand());
+	
+	//정상작동 하는지 확인
+	public static void main(String[] args) {
+		File file = new File("Gimbap.txt의 위치");
+		Data data = Data.getData();
+
+		JFrame f = new JFrame();
+		f.setTitle("");
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setLayout(null);
+
+		int categoryCount = data.getCategoryCount();
+		MenuPanel[] menu= new MenuPanel[categoryCount];
+		for(int i=0; i<categoryCount; i++) {
+			menu[i] = new MenuPanel(data.getCategory(i));
+			menu[i].setLocation(50, 50);
+			f.add(menu[i]);
+			if(i!=0)
+				menu[i].setVisible(false);
 		}
-
+		
+		f.setSize(400,400);
+		f.setVisible(true);
 	}
-
 }

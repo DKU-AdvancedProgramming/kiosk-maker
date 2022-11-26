@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 /*
             <-- 사용법 -->
+    Data 객체 갖고오기:
+        Data data = Data.getData();
     카테고리명 접근:
         data.getCategory(i).name
     아이템 접근:
@@ -14,9 +16,10 @@ import java.util.Scanner;
         data.getCategory(i).getItem(i).price
 */
 public class Data {
-    List<Category> categories = new ArrayList<>();
+    private static Data data;
+    private List<Category> categories = new ArrayList<>();
 
-    public Data(File file) {
+    private Data(File file) {
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) { // 한 라인 씩 읽어서 카테고리를 추가한다.
@@ -34,6 +37,13 @@ public class Data {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Data getData() {
+        return data;
+    }
+    public static void setData(File file) {
+        data = new Data(file);
     }
 
     public int getCategoryCount() {

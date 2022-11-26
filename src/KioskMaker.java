@@ -1,10 +1,12 @@
+import data.Data;
 import panels.*;
 import java.awt.*;
+import java.io.File;
 import javax.swing.*;
 
 //프로젝트 설계도 제안안
 public class KioskMaker extends JFrame{
-    private JPanel list, menu, order, north;
+    private JPanel list, menu, order, category;
 
     public KioskMaker() {
         setTitle("주문 시스템");
@@ -17,7 +19,7 @@ public class KioskMaker extends JFrame{
         list = new ListPanel();
         menu = new MenuPanel();
         order = new OrderPanel();
-        north = new NorthPanel();
+        category = new CategoryPanel();
 
         //대충 패널들 위치지정
         list.setSize(200,1000);
@@ -26,19 +28,21 @@ public class KioskMaker extends JFrame{
         menu.setLocation(200, 170);
         order.setSize(300,600);
         order.setLocation(700, 170);
-        north.setSize(800, 200);
-        north.setLocation(200,0);
+        category.setSize(800, 200);
+        category.setLocation(200,0);
 
         c.add(list);
         c.add(menu);
         c.add(order);
-        c.add(north);
+        c.add(category);
 
         setSize(1000,600);
         setVisible(true);
     }
 
     public static void main(String[] args) {
+        File file = new File("Gimbap.txt의 위치");
+        Data.setData(file);
         new KioskMaker();
     }
 }

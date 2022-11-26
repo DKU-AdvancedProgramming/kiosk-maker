@@ -1,29 +1,33 @@
 package panels;
 
-import data.Category;
+import data.Data;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-/*
-panel to display one category
-*/
-class CategoryPanel extends JPanel{
-	public Menu[] MenuList = new Menu[9];
+public class CategoryPanel extends JPanel{
+    public ArrayList<JButton> categoryButtonList = new ArrayList<>();
 
-	public CategoryPanel(Category c){
+    private Data data = Data.getData();
 
-		setLayout(new GridLayout(3,3,4,4));
+    public CategoryPanel() {
+        setLayout(new FlowLayout());
+        for(int i=0 ; i<data.getCategoryCount() ; i++) {
+            categoryButtonList.add(new JButton( data.getCategory(i).name ));
+            categoryButtonList.get(i).setBackground(Color.white);
+            categoryButtonList.get(i).addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JButton b = (JButton)e.getSource();
+                    card.show(overlapped, b.getActionCommand());
+                }
+            });
 
-		for(int i=0 ; i<9 ; i++) {
-			MenuList[i] = new Menu(c.getItem(i).name,
-						c.getItem(i).price, "filePath");
-			add(MenuList[i]);
-		}
-
-		setVisible(true);
-		setSize(300,300);
-	}
+            add(categoryButtonList.get(i));
+        }
+        setVisible(true);
+    }
 }
-
