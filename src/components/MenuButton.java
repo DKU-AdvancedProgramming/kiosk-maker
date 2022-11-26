@@ -8,12 +8,12 @@ import java.awt.*;
 button to store information about one menu
 	※ 여기서 Menu는 '하나의 메뉴'를 의미합니다!
 */
-public class Menu extends JButton{
+public class MenuButton extends JButton{
 	public String name;
 	public int price;
 	public ImageIcon image;
 
-	public Menu(Item item) {
+	public MenuButton(Item item) {
 		name = item.name;
 		price = item.price;
 		image = resizedImageIcon(item.imgPath);

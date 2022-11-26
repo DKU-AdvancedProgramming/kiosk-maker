@@ -1,5 +1,6 @@
 package panels;
 
+import components.MenuButton;
 import data.Category;
 import data.Data;
 
@@ -8,22 +9,21 @@ import java.io.File;
 import javax.swing.*;
 
 public class MenuPanel extends JPanel{
-	public JButton[] menuButton;
+	public JButton[] menuButtons;
 	public int itemCount;
+	public CardLayout card;
+
+	private final Data data = Data.getData();
 	
 	//카테고리 객체를 받아 객체 생성
 	public MenuPanel(Category category) {
 		itemCount = category.getItemCount(); //추가한 메소드
-		menuButton = new JButton[itemCount]; //
+		menuButtons = new MenuButton[itemCount];
 		setLayout(new GridLayout(3,itemCount/3,4,4));
 		
 		for(int i=0; i<itemCount; i++) {
-			menuButton[i] = new JButton();
-			menuButton[i].setLayout(new FlowLayout());
-			menuButton[i].add(new JLabel(category.getItem(i).name));
-			menuButton[i].add(new JLabel(Integer.toString(category.getItem(i).price)));
-			menuButton[i].setBackground(Color.WHITE);
-			add(menuButton[i]);
+			menuButtons[i] = new MenuButton(category.getItem(i));
+			add(menuButtons[i]);
 		}
 		setVisible(true);
 		setSize(300,300);
