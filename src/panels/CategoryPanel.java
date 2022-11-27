@@ -12,7 +12,7 @@ public class CategoryPanel extends JPanel{
     public ArrayList<JButton> categoryButtonList = new ArrayList<>();
 
     private Data data = Data.getData();
-
+    private CardLayout cardlay = OverlappedMenuPanel.card;
     public CategoryPanel() {
         setLayout(new FlowLayout());
         for(int i=0 ; i<data.getCategoryCount() ; i++) {
@@ -22,7 +22,9 @@ public class CategoryPanel extends JPanel{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JButton b = (JButton)e.getSource();
-                    card.show(overlapped, b.getActionCommand());
+                    cardlay.show(XXX, b.getActionCommand());
+                    /*XXX 자리에 카테고리가 겹쳐진 화면 클래스의 객체
+                    (여기서는 OverlappedMenuPanel)가 와야 함.*/
                 }
             });
 
