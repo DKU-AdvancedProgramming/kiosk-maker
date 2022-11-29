@@ -33,6 +33,9 @@ class OneMenuPanel extends JPanel{
 
 
 public class MenuPanel extends JPanel{
+
+	private static MenuPanel menupanel;
+
 	public JPanel[] menuPanels;
 	public int itemCount;
 	protected static CardLayout card = new CardLayout(); //card -> cardLayout
@@ -41,7 +44,7 @@ public class MenuPanel extends JPanel{
 	private final Data data = Data.getData();  //무슨의미
 	
 	//카테고리 객체를 받아 객체 생성
-	public MenuPanel(String filename) {
+	private MenuPanel(String filename) {
 		Data.setData(new File(filename));
 		menuPanels = new OneMenuPanel[data.getCategoryCount()];
 		setLayout(card);
@@ -51,6 +54,14 @@ public class MenuPanel extends JPanel{
 			menuPanels[i] = new OneMenuPanel(c);
 			add(c.name, menuPanels[i]);
 		}
+	}
+
+	public static MenuPanel getThis() {
+		return menupanel;
+	}
+
+	public static void setThis(String filename) {
+		menupanel = new MenuPanel( filename );
 	}
 	
 

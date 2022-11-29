@@ -17,7 +17,7 @@ public class KioskMaker extends JFrame{
 
         //각 패널들의 클래스 객체 생성
         list = new ListPanel();
-        menu = new MenuPanel();
+        menu = MenuPanel.getThis();
         order = new OrderPanel();
         category = new CategoryPanel();
 
