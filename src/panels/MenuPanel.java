@@ -7,7 +7,6 @@ import data.Data;
 import java.awt.*;
 import java.io.File;
 import javax.swing.*;
-import java.util.ArrayList;
 
 class OneMenuPanel extends JPanel{
     public JButton[] menuButtons;
@@ -51,6 +50,11 @@ public class MenuPanel extends JPanel{
 			menuPanels[i] = new OneMenuPanel(c);
 			add(c.name, menuPanels[i]);
 		}
+	}
+	
+	
+	OneMenuPanel getMenuPanel(int index) {
+		return (OneMenuPanel) menuPanels[index];
 	}
 	
 

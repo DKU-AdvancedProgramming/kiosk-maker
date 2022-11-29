@@ -1,4 +1,4 @@
-package panels;
+package components;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,15 +17,17 @@ public class ItemPricePanel extends JPanel {
     //개수 * 단가
 
     public ItemPricePanel(String itemName, int itemPrice){
-        this.itemPrice = itemPrice;
-        totalPrice = this.itemPrice * cnt;
 
         itemLab = new JLabel(itemName);
         priceLab = new JLabel(String.valueOf(this.itemPrice) + "원");
 
         cntText = new JTextField(String.valueOf(cnt), 2);
-        plus = new JButton("+");
+        
         minus = new JButton("-");
+        plus = new JButton("+");
+        
+        minus.setBackground(Color.WHITE);
+        plus.setBackground(Color.WHITE);
 
         totalPriceLab = new JLabel(String.valueOf(totalPrice) + "원");
         GUI_Set();
@@ -43,9 +45,9 @@ public class ItemPricePanel extends JPanel {
         add(itemLab);
         add(priceLab);
 
-        add(plus);
-        add(cntText);
         add(minus);
+        add(cntText);
+        add(plus);
 
         add(totalPriceLab);
     }
