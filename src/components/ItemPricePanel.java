@@ -17,6 +17,8 @@ public class ItemPricePanel extends JPanel {
     //개수 * 단가
 
     public ItemPricePanel(String itemName, int itemPrice){
+        this.itemPrice = itemPrice;
+        totalPrice = this.itemPrice * cnt;
 
         itemLab = new JLabel(itemName);
         priceLab = new JLabel(String.valueOf(this.itemPrice) + "원");
