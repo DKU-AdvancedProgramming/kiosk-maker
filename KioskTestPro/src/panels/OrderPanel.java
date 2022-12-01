@@ -51,6 +51,12 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
             if(btn_itemPricePanel.size() < 10){
                 //BillPanel에 최대 10개의 ItemPricePanel 추가 가능
                 MenuButton mBtn = (MenuButton) e.getSource();
+                //중복 메뉴 클릭 불가능
+                for(ItemPricePanel tmp:btn_itemPricePanel.values()){
+                    if(tmp.itemLab.getText().equals(mBtn.name)){
+                        return;
+                    }
+                }
 
                 //[X] - itemPricePanel(야채김밥 | 2000원 | [-]1[+] | [X])
                 JButton deleteBtn = new JButton("X");
@@ -60,6 +66,9 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
 
                 btn_itemPricePanel.put(deleteBtn, itemPricePanel);
                 billPanel.add(itemPricePanel);
+                //추가된 부분
+                billPanel.revalidate();
+                billPanel.repaint();
             }
         }
     }
@@ -71,6 +80,9 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
             JButton dBtn = (JButton)e.getSource();
             billPanel.remove(btn_itemPricePanel.remove(dBtn));
             //클릭된 [X]버튼을 포함하는 ItemPricePanel, OrderPanel.Map<>의 [X]-ItemPricePanel 요소를 동시에 제거
+            //추가된 부분
+            billPanel.revalidate();
+            billPanel.repaint();
         }
     }
 }
@@ -147,6 +159,9 @@ class BtnPanel extends JPanel{
                 //연결된 BillPanel(OrderPanel).Map<>의 모든 요소, BillPanel에 부착된 모든 ItemPricePanel를 제거
                 billPanel.btn_itemPricePanel.clear();
                 billPanel.removeAll();
+                //추가된 부분
+                billPanel.revalidate();
+                billPanel.repaint();
             }
         });
     }

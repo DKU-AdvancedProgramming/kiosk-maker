@@ -13,9 +13,9 @@ public class Main extends JFrame{
         setLayout(null);
         setSize(1000,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
 
         GUI_Set();
+        setVisible(true);
     }
 
     public void GUI_Set(){
