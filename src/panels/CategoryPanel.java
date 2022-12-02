@@ -12,7 +12,7 @@ public class CategoryPanel extends JPanel{
     public ArrayList<JButton> categoryButtonList = new ArrayList<>();
 
     private Data data = Data.getData();
-    private MenuPanel menupanel = MenuPanel.getThis();
+    private MenuPanel menupanel = Panels.getMenuPanel();
     private CardLayout cardlay;
     public CategoryPanel() {
         setLayout(new FlowLayout());
