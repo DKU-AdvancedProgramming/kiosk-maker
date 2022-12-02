@@ -15,11 +15,11 @@ public class KioskMaker extends JFrame{
         Container c = getContentPane();
         c.setLayout(null);
 
+        Panels.init();
         //각 패널들의 클래스 객체 생성
-        list = new ListPanel();
-        menu = MenuPanel.getThis();
-        order = new OrderPanel();
-        category = new CategoryPanel();
+        menu = Panels.getMenuPanel();
+        order = Panels.getOrderPanel();
+        category = Panels.getCategoryPanel();
 
         //대충 패널들 위치지정
         list.setSize(200,1000);
