@@ -1,6 +1,4 @@
-package components;
-
-import data.Item;
+package data;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +12,7 @@ public class MenuButton extends JButton{
 	public ImageIcon image;
 
 	public MenuButton(Item item) {
+
 		name = item.name;
 		price = item.price;
 		image = resizedImageIcon(item.imgPath);
