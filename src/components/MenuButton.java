@@ -41,13 +41,4 @@ public class MenuButton extends JButton{
 		Image img = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 		return new ImageIcon(img);
 	}
-
 }
-
-
-
-
-
-
-
-

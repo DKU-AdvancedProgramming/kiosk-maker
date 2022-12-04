@@ -1,5 +1,7 @@
 package panels;
 
+import components.ItemPricePanel;
+import components.MenuButton;
 import javax.swing.*;
 import java.awt.*;
 
@@ -27,7 +29,8 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
         
         add(billPanel);
         add(btnPanel);
-       
+        
+        
         setSize(350,200);
     }
     
@@ -59,6 +62,8 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
 
                 btn_itemPricePanel.put(deleteBtn, itemPricePanel);
                 billPanel.add(itemPricePanel);
+                revalidate();
+                repaint();
             }
         }
     }
@@ -69,6 +74,8 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
         public void actionPerformed(ActionEvent e) {
             JButton dBtn = (JButton)e.getSource();
             billPanel.remove(btn_itemPricePanel.remove(dBtn));
+            revalidate();
+            repaint();
             //클릭된 [X]버튼을 포함하는 ItemPricePanel, OrderPanel.Map<>의 [X]-ItemPricePanel 요소를 동시에 제거
         }
     }
@@ -100,9 +107,9 @@ class BillPanel extends JPanel{
 
 class BtnPanel extends JPanel{
     //OrderPanel의 하단부
-    public JButton orderBtn = new JButton("주문");
+    public JButton orderBtn= new JButton("주문");
     public JButton resetBtn = new JButton("취소");
-    public JButton Btn = new JButton("Button");
+
 
     public BillPanel billPanel;
     public BtnPanel(BillPanel billPanel){
@@ -110,4 +117,48 @@ class BtnPanel extends JPanel{
         GUI_Set();
         addXListener();
     }
+
+    public void GUI_Set(){
+        setBackground(Color.WHITE);
+        setLayout(new GridLayout(1,2,0,3));
+        resetBtn.setBackground(Color.LIGHT_GRAY);
+        orderBtn.setBackground(Color.ORANGE);
+
+        add(resetBtn);
+        add(orderBtn);
+
+        setSize(350,50);
+    }
+
+    public void addXListener(){
+        orderBtn.addActionListener(new ActionListener() {
+            //[주문]버튼 클릭시
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(billPanel.btn_itemPricePanel.size() >= 1){
+                    billPanel.totalPriceSum = 0;
+                    //다시 0으로 초기화
+                    billPanel.setPriceSum();
+
+                    String text = String.format("총 주문금액: %d원\n주문하시겠습니까?", billPanel.totalPriceSum);
+                    int option = JOptionPane.showConfirmDialog(null, text, "결제 확인", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if(option == JOptionPane.OK_OPTION){
+                        JOptionPane.showMessageDialog(null, "주문이 완료되었습니다.\n음식이 나올 때까지 잠시만 기다려 주세요.", "주문 성공", JOptionPane.INFORMATION_MESSAGE);
+                    }
+
+                }
+            }
+        });
+        
+        resetBtn.addActionListener(new ActionListener() {
+            //[초기화]버튼 클릭시
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //연결된 BillPanel(OrderPanel).Map<>의 모든 요소, BillPanel에 부착된 모든 ItemPricePanel를 제거
+            	billPanel.btn_itemPricePanel.clear();
+                billPanel.removeAll();
+            }
+        });
+    }
 }
+
