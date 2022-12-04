@@ -12,7 +12,6 @@ import java.util.ArrayList;
 class OneMenuPanel extends JPanel{
     public JButton[] menuButtons;
     public int itemCount;
-    public CardLayout card;
 
     private final Data data = Data.getData();
 

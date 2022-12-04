@@ -13,7 +13,7 @@ public class CategoryPanel extends JPanel{
 
     private Data data = Data.getData();
     private MenuPanel menupanel = Panels.getMenuPanel();
-    private CardLayout cardlay;
+    private CardLayout cardlay = MenuPanel.card;
     public CategoryPanel() {
         setLayout(new FlowLayout());
         for(int i=0 ; i<data.getCategoryCount() ; i++) {

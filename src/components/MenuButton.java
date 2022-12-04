@@ -38,7 +38,7 @@ public class MenuButton extends JButton{
 
 	private static ImageIcon resizedImageIcon(String pathname) {
 		ImageIcon icon = new ImageIcon(pathname);
-		Image img = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		Image img = icon.getImage().getScaledInstance(90, 60, Image.SCALE_SMOOTH);
 		return new ImageIcon(img);
 	}
 }
