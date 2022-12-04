@@ -21,7 +21,7 @@ public class KioskMaker extends JFrame{
         category = new CategoryPanel(menu);
         order = new OrderPanel(menu);
 
-        //패널들 위치지정
+        //패널들 위치지정dbsl137900
         north.setSize(350,40);
         north.setLocation(0,0);
         category.setSize(350, 50);
@@ -42,7 +42,7 @@ public class KioskMaker extends JFrame{
     }
 
     public static void main(String[] args) {
-        String fileName = "C:\\Users\\손진호\\Desktop\\kiosk-maker\\Gimbap.txt";
+        String fileName = "Gimbap.txt";
         Data.setData(new File(fileName));
         new KioskMaker(fileName);
     }
