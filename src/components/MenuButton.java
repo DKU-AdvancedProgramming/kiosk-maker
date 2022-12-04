@@ -45,10 +45,3 @@ public class MenuButton extends JButton{
 	}
 
 }
-
-
-
-
-
-
-
