@@ -22,8 +22,8 @@ public class KioskMaker extends JFrame{
         category = Panels.getCategoryPanel();
 
         //대충 패널들 위치지정
-        list.setSize(200,1000);
-        list.setLocation(0, 0);
+//        list.setSize(200,1000);
+//        list.setLocation(0, 0);
         menu.setSize(550, 550);
         menu.setLocation(200, 170);
         order.setSize(300,600);
@@ -31,7 +31,7 @@ public class KioskMaker extends JFrame{
         category.setSize(800, 200);
         category.setLocation(200,0);
 
-        c.add(list);
+//        c.add(list);
         c.add(menu);
         c.add(order);
         c.add(category);
@@ -41,7 +41,7 @@ public class KioskMaker extends JFrame{
     }
 
     public static void main(String[] args) {
-        File file = new File("Gimbap.txt의 위치");
+        File file = new File("Gimbap.txt");
         Data.setData(file);
         new KioskMaker();
     }
