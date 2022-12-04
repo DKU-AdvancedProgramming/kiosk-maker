@@ -56,6 +56,12 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
             if(btn_itemPricePanel.size() < 10){
                 //BillPanel에 최대 10개의 ItemPricePanel 추가 가능
                 MenuButton mBtn = (MenuButton) e.getSource();
+                //추가(메뉴 중복 선택 방지 코드), 22.12.04 - 하경준
+                for(ItemPricePanel tmp:btn_itemPricePanel.values()){
+                    if(tmp.itemLab.getText().equals(mBtn.name)){
+                        return;
+                    }
+                }
 
                 //[X] - itemPricePanel(야채김밥 | 2000원 | [-]1[+] | [X])
                 JButton deleteBtn = new JButton("X");
@@ -160,6 +166,10 @@ class BtnPanel extends JPanel{
                 //연결된 BillPanel(OrderPanel).Map<>의 모든 요소, BillPanel에 부착된 모든 ItemPricePanel를 제거
             	billPanel.btn_itemPricePanel.clear();
                 billPanel.removeAll();
+
+                //추가 22.12.04
+                billPanel.revalidate();
+                billPanel.repaint();
             }
         });
     }

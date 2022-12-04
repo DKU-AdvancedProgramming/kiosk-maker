@@ -39,6 +39,7 @@ public class KioskMaker extends JFrame{
         
         setSize(365,780);
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //추가 22.12.04
     }
 
     public static void main(String[] args) {
@@ -46,5 +47,4 @@ public class KioskMaker extends JFrame{
         Data.setData(file);
         new KioskMaker();
     }
-    
 }
