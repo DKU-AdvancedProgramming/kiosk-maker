@@ -6,10 +6,9 @@ import javax.swing.*;
 
 //프로젝트 설계도 제안안
 public class KioskMaker extends JFrame{
-    private JPanel north, list, order, category;
-	MenuPanel menu;
+    private JPanel north, menu, order, category;
 
-    public KioskMaker(String fileName) {
+    public KioskMaker() {
         setTitle("주문 시스템");
 
         Container c = getContentPane();
@@ -17,12 +16,12 @@ public class KioskMaker extends JFrame{
 
         Panels.init();
         //각 패널들의 클래스 객체 생성
-        north = new NorthPanel();
-        menu = new MenuPanel(fileName);
-        category = new CategoryPanel(menu);
-        order = new OrderPanel(menu);
+        north = Panels.getNorthPanel();
+        menu = Panels.getMenuPanel();
+        category = Panels.getCategoryPanel();
+        order = Panels.getOrderPanel();
 
-        //패널들 위치지정dbsl137900
+        //패널들 위치지정
         north.setSize(350,40);
         north.setLocation(0,0);
         category.setSize(350, 50);

@@ -54,7 +54,7 @@ public class MenuPanel extends JPanel {
 	}
 	
 	
-	OneMenuPanel getMenuPanel(int index) {
+	OneMenuPanel getOneMenuPanel(int index) {
 		return (OneMenuPanel) menuPanels[index];
 	}
 	

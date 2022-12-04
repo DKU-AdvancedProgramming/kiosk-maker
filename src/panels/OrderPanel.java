@@ -1,9 +1,12 @@
 package panels;
 
-import components.ItemPricePanel;
 import components.MenuButton;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수증 출력기능도 있어야 할듯
     public Map<JButton, ItemPricePanel> btn_itemPricePanel;
@@ -46,7 +49,7 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
     	}
     }
 
-    class MenuBtnListener implements ActionListener{
+    class MenuBtnListener implements ActionListener {
         //MenuButton 클릭시
         @Override
         public void actionPerformed(ActionEvent e) {
