@@ -53,7 +53,7 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
         //MenuButton 클릭시
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(btn_itemPricePanel.size() < 10){
+            if(btn_itemPricePanel.size() < 7){
                 //BillPanel에 최대 10개의 ItemPricePanel 추가 가능
                 MenuButton mBtn = (MenuButton) e.getSource();
                 //추가(메뉴 중복 선택 방지 코드), 22.12.04 - 하경준
