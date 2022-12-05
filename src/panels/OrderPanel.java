@@ -154,7 +154,10 @@ class BtnPanel extends JPanel{
                     if(option == JOptionPane.OK_OPTION){
                         JOptionPane.showMessageDialog(null, "주문이 완료되었습니다.\n음식이 나올 때까지 잠시만 기다려 주세요.", "주문 성공", JOptionPane.INFORMATION_MESSAGE);
                     }
-
+                    billPanel.btn_itemPricePanel.clear();
+                    billPanel.removeAll();
+                    billPanel.revalidate();
+                    billPanel.repaint();
                 }
             }
         });
