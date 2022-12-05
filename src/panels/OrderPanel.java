@@ -102,8 +102,8 @@ class BillPanel extends JPanel{
 
     public void GUI_Set(){
         setBackground(Color.WHITE);
-        setLayout(new GridLayout(10,1,0,1));
-        setSize(350,400);
+        setLayout(new GridLayout(7,1,0,1));
+        setSize(350,250);
     }
 
     public void setPriceSum(){
@@ -154,7 +154,10 @@ class BtnPanel extends JPanel{
                     if(option == JOptionPane.OK_OPTION){
                         JOptionPane.showMessageDialog(null, "주문이 완료되었습니다.\n음식이 나올 때까지 잠시만 기다려 주세요.", "주문 성공", JOptionPane.INFORMATION_MESSAGE);
                     }
-
+                    billPanel.btn_itemPricePanel.clear();
+                    billPanel.removeAll();
+                    billPanel.revalidate();
+                    billPanel.repaint();
                 }
             }
         });
@@ -166,8 +169,9 @@ class BtnPanel extends JPanel{
                 //연결된 BillPanel(OrderPanel).Map<>의 모든 요소, BillPanel에 부착된 모든 ItemPricePanel를 제거
             	billPanel.btn_itemPricePanel.clear();
                 billPanel.removeAll();
+                billPanel.revalidate();
+                billPanel.repaint();
             }
         });
     }
 }
-
