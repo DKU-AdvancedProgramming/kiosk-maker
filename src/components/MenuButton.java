@@ -25,7 +25,7 @@ public class MenuButton extends JButton{
 		JLabel priceLabel = new JLabel(Integer.toString(price));
 
 		imgLabel.setSize(100, 100);
-		nameLabel.setSize(100, 30);
+		nameLabel.setSize(200, 30);
 		priceLabel.setSize(100, 30);
 
 		setLayout(new BorderLayout());

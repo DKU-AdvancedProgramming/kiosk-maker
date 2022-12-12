@@ -41,6 +41,8 @@ public class ItemPricePanel extends JPanel {
         setBackground(Color.LIGHT_GRAY);
         setLayout(new FlowLayout());
 
+        itemLab.setPreferredSize(new Dimension(80, 20));
+        itemLab.setHorizontalAlignment(JLabel.CENTER);
         plus.setSize(20,20);
         minus.setSize(20,20);
 
