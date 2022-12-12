@@ -19,14 +19,14 @@ public class MenuButton extends JButton{
 		image = resizedImageIcon(item.imgPath);
 
 		setBackground(Color.white);
+		setBorder(BorderFactory.createLineBorder(Color.CYAN, 1));
 
 		JLabel imgLabel = new JLabel(image);
 		JLabel nameLabel = new JLabel(name);
 		JLabel priceLabel = new JLabel(Integer.toString(price));
 
 		imgLabel.setSize(100, 100);
-		nameLabel.setSize(200, 30);
-		priceLabel.setSize(100, 30);
+		nameLabel.setPreferredSize(new Dimension(150, 30));
 
 		setLayout(new BorderLayout());
 
@@ -38,7 +38,7 @@ public class MenuButton extends JButton{
 
 	private static ImageIcon resizedImageIcon(String pathname) {
 		ImageIcon icon = new ImageIcon(pathname);
-		Image img = icon.getImage().getScaledInstance(90, 60, Image.SCALE_SMOOTH);
+		Image img = icon.getImage().getScaledInstance(100, 70, Image.SCALE_SMOOTH);
 		return new ImageIcon(img);
 	}
 }
