@@ -32,9 +32,8 @@ public class OrderPanel extends JPanel { //오른쪽 주문하기 패널, 영수
         
         add(billPanel);
         add(btnPanel);
-        
-        
-        setSize(350,200);
+
+        setSize(350,300);
     }
     
 

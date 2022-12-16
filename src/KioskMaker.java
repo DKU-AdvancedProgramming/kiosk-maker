@@ -28,7 +28,7 @@ public class KioskMaker extends JFrame{
         category.setLocation(0,35);
         menu.setSize(350, 350);
         menu.setLocation(0, 85);        
-        order.setSize(350, 350);
+        order.setSize(350, 300);
         order.setLocation(0,440);
 
 
