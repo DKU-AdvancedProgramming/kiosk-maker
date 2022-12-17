@@ -19,7 +19,7 @@ public class MenuButton extends JButton{
 		image = resizedImageIcon(item.imgPath);
 
 		setBackground(Color.white);
-		setBorder(BorderFactory.createLineBorder(Color.CYAN, 1));
+		setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
 
 		JLabel imgLabel = new JLabel(image);
 
