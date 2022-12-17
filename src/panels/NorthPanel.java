@@ -12,6 +12,7 @@ public class NorthPanel extends JPanel{
         setBackground(Color.ORANGE);
         setLayout(new FlowLayout());
         name = new JLabel("WOW 김밥");
+        name.setFont(new Font("NanumGothic", Font.BOLD, 24));
         add(name);
     }
 }

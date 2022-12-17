@@ -43,8 +43,11 @@ public class ItemPricePanel extends JPanel {
 
         itemLab.setPreferredSize(new Dimension(80, 20));
         itemLab.setHorizontalAlignment(JLabel.CENTER);
-        plus.setSize(20,20);
-        minus.setSize(20,20);
+        itemLab.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+        priceLab.setFont(new Font("NanumGothic", Font.BOLD, 12));
+        totalPriceLab.setFont(new Font("NanumGothic", Font.BOLD, 12));
+        plus.setSize(10,10);
+        minus.setSize(10,10);
 
         add(itemLab);
         add(priceLab);

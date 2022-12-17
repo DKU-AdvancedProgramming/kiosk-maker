@@ -109,7 +109,9 @@ class BtnPanel extends JPanel{
     public void GUI_Set(){
         setBackground(Color.WHITE);
         setLayout(new GridLayout(1,2,0,3));
+        resetBtn.setFont(new Font("NanumGothic", Font.PLAIN, 20));
         resetBtn.setBackground(Color.LIGHT_GRAY);
+        orderBtn.setFont(new Font("NanumGothic", Font.PLAIN, 20));
         orderBtn.setBackground(Color.ORANGE);
 
         add(resetBtn);

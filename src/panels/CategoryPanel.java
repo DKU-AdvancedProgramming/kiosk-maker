@@ -17,7 +17,9 @@ public class CategoryPanel extends JPanel{
     public CategoryPanel() {
         setLayout(new FlowLayout());
         for(int i=0 ; i<data.getCategoryCount() ; i++) {
-            categoryButtonList.add(new JButton( data.getCategory(i).name ));
+            JButton btn = new JButton( data.getCategory(i).name );
+            btn.setFont(new Font("NanumGothic", Font.PLAIN, 18));
+            categoryButtonList.add(btn);
             categoryButtonList.get(i).setBackground(Color.white);
             categoryButtonList.get(i).addActionListener(new ActionListener() {
                 @Override

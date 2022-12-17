@@ -22,8 +22,13 @@ public class MenuButton extends JButton{
 		setBorder(BorderFactory.createLineBorder(Color.CYAN, 1));
 
 		JLabel imgLabel = new JLabel(image);
+
 		JLabel nameLabel = new JLabel(name);
+		nameLabel.setFont(new Font("NanumGothic", Font.PLAIN, 16));
+
 		JLabel priceLabel = new JLabel(Integer.toString(price));
+		priceLabel.setFont(new Font("NanumGothic", Font.BOLD, 14));
+
 
 		imgLabel.setSize(100, 100);
 		nameLabel.setPreferredSize(new Dimension(150, 30));
