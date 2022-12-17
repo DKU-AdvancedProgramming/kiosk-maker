@@ -37,6 +37,7 @@ public class KioskFrame extends JFrame {
         c.add(order);
 
         setSize(365,780);
+        setLocationRelativeTo(null); // 화면 정중앙에 배치
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //추가 22.12.04
     }

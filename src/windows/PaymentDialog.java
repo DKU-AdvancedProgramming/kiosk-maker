@@ -4,6 +4,7 @@ import panels.order.BillPanel;
 import panels.Panels;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -57,7 +58,8 @@ public class PaymentDialog extends JDialog {
         add(curr_bill);
 
 
-        setBounds(7, 70, 365,400);
+        setSize(365, 400);
+        setLocationRelativeTo(null); // 화면 정중앙에 배치
         setVisible(true);
     }
 }
