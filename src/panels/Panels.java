@@ -1,5 +1,7 @@
 package panels;
 
+import windows.KioskFrame;
+
 public class Panels {
     private static KioskFrame kioskFrame;
     private static MenuPanel menuPanel;

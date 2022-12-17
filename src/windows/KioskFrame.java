@@ -1,4 +1,6 @@
-package panels;
+package windows;
+
+import panels.Panels;
 
 import javax.swing.*;
 import java.awt.*;
