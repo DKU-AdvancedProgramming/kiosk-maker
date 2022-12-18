@@ -1,8 +1,10 @@
 package panels;
 
+import windows.FirstFrame;
 import windows.KioskFrame;
 
 public class Panels {
+    private static FirstFrame firstFrame;
     private static KioskFrame kioskFrame;
     private static MenuPanel menuPanel;
     private static CategoryPanel categoryPanel;
@@ -18,6 +20,10 @@ public class Panels {
         kioskFrame = new KioskFrame();
     }
 
+    public static void startKiosk(){
+        firstFrame = new FirstFrame();
+    }
+    public static FirstFrame getFirstFrame() { return firstFrame; }
     public static KioskFrame getKioskFrame() {return kioskFrame;}
     public static MenuPanel getMenuPanel() { return menuPanel; }
     public static CategoryPanel getCategoryPanel() { return categoryPanel; }

@@ -46,12 +46,14 @@ public class PaymentDialog extends JDialog {
                 String text = String.format("총 주문금액: %d원\n주문하시겠습니까?", curr_bill.totalPriceSum);
                 int option = JOptionPane.showConfirmDialog(null, text, "결제 확인", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if(option == JOptionPane.OK_OPTION){
-
-
                     JOptionPane.showMessageDialog(null, "주문이 완료되었습니다.\n음식이 나올 때까지 잠시만 기다려 주세요.", "주문 성공", JOptionPane.INFORMATION_MESSAGE);
                     curr_bill.btn_itemPricePanel.clear();
                     curr_bill.removeAll();
-                    back();
+
+                    Panels.getKioskFrame().dispose();
+                    PaymentDialog.this.dispose();
+
+                    Panels.getFirstFrame().setVisible(true);
                 }
             }
         });

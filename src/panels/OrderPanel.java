@@ -151,6 +151,10 @@ class BtnPanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //연결된 BillPanel(OrderPanel).Map<>의 모든 요소, BillPanel에 부착된 모든 ItemPricePanel를 제거
+                if(billPanel.btn_itemPricePanel.size() == 0){
+                    Panels.getKioskFrame().dispose();
+                    Panels.getFirstFrame().setVisible(true);
+                }
             	billPanel.btn_itemPricePanel.clear();
                 billPanel.removeAll();
                 billPanel.revalidate();

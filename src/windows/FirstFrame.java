@@ -1,19 +1,28 @@
 package windows;
 
+import data.Data;
+import panels.Panels;
+
 import java.awt.*;
+import java.io.File;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class ForHereToGoPanel extends JPanel { //포장 매장
+public class FirstFrame extends JFrame { //포장 매장
 	JLabel colorLabel1, colorLabel2, textLabel;
 	JButton forHere, toGo;
 
-	public ForHereToGoPanel() {
+	public FirstFrame() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		setBackground(Color.WHITE);
 		setSize(350,775);
 		setLayout(null);
 		GUI_Set();
 		setImageAndFont();
+
+		setLocationRelativeTo(null);
+		setVisible(true);
 	}
 	
 	void GUI_Set() {
@@ -27,18 +36,27 @@ public class ForHereToGoPanel extends JPanel { //포장 매장
 		colorLabel1.setLocation(0,50);
 	
 		
-		forHere = new JButton("바로먹기");
+		forHere = new JButton("매장");
 		toGo = new JButton("포장");
+
 		forHere.setLocation(45,200);
 		forHere.setSize(120,200);
-		forHere.addActionListener(e -> this.setVisible(false));
+		forHere.addActionListener(e -> {
+			File file = new File("Gimbap.txt");
+			Data.setData(file);
+			Panels.init();
+			setVisible(false);});
 		forHere.setBackground(Color.ORANGE);
+
 		toGo.setLocation(190,200);
 		toGo.setSize(120,200);
+		toGo.addActionListener(e -> {
+			File file = new File("Gimbap.txt");
+			Data.setData(file);
+			Panels.init();
+			setVisible(false);});
 		toGo.setBackground(Color.ORANGE);
-		toGo.addActionListener(e -> this.setVisible(false));
-	
-		
+
 		colorLabel2 = new JLabel();
 		colorLabel2.setOpaque(true);
 		colorLabel2.setBackground(Color.ORANGE);
@@ -59,18 +77,6 @@ public class ForHereToGoPanel extends JPanel { //포장 매장
 	}
 
 	public static void main(String[] args) {
-		JFrame f = new JFrame();
-		f.setLayout(null);
-		f.setTitle(null);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		ForHereToGoPanel p = new ForHereToGoPanel();
-		p.setLocation(0,0);
-		f.add(p);
-		
-		
-		f.setVisible(true);
-		f.setSize(365,775);
+		Panels.startKiosk();
 	}
-	
 }
