@@ -85,8 +85,10 @@ public class FirstFrame extends JFrame { //포장 매장
 		forHere.add(l1, BorderLayout.CENTER);
 		toGo.add(l2, BorderLayout.CENTER);
 
-		JLabel t1 = new JLabel("      매장");
-		JLabel t2 = new JLabel("      포장");
+		JLabel t1 = new JLabel("매장");
+		JLabel t2 = new JLabel("포장");
+		t1.setHorizontalAlignment(JLabel.CENTER);
+		t2.setHorizontalAlignment(JLabel.CENTER);
 
 		t1.setFont(new Font("NanumGothic", Font.PLAIN, 16));
 		t2.setFont(new Font("NanumGothic", Font.PLAIN, 16));
