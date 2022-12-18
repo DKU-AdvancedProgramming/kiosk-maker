@@ -27,7 +27,8 @@ public class FirstFrame extends JFrame { //포장 매장
 	
 	void GUI_Set() {
 		textLabel = new JLabel("식사하실 장소를 선택해 주세요");
-		textLabel.setLocation(95,80);
+		textLabel.setFont(new Font("NanumGothic", Font.PLAIN, 16));
+		textLabel.setLocation(65,80);
 		textLabel.setSize(365,100);
 		colorLabel1 = new JLabel();
 		colorLabel1.setOpaque(true);
