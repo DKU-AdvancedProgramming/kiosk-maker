@@ -23,6 +23,8 @@ public class PaymentDialog extends JDialog {
         btnBack = new JButton("뒤로가기");
         btnPayByCard = new JButton("신용카드 결제");
 
+        btnBack.setBackgroud(Color.LIGHT_GRAY);
+        btnPayByCard.setBackGroud(Color.ORANGE);
         btnBack.setBounds(15,270,152,75);
         btnPayByCard.setBounds(185,270,152, 75);
 
