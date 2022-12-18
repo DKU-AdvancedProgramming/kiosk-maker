@@ -15,29 +15,39 @@ import java.util.Scanner;
     아이템 접근:
         data.getCategory(i).getItem(i).name
         data.getCategory(i).getItem(i).price
+    식당 이름 접근:
+        String data.getName();
 */
 public class Data {
     private static Data data;
     private List<Category> categories = new ArrayList<>();
 
+    private String name;
+
     private Data(File file) {
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) { // 한 라인 씩 읽어서 카테고리를 추가한다.
-                String line = scanner.nextLine();
-                String[] splitedStrings = line.split(",");
-                Category category = new Category(splitedStrings[0]);
-                for (int i = 1; i < splitedStrings.length; i++) { // 카테고리에 아이템들 추가한다.
-                    String name = splitedStrings[i].split(":")[0];
-                    int price = Integer.parseInt(splitedStrings[i].split(":")[1]);
-                    Item item = new Item(name, price);
-                    category.add(item);
+            int categoryindex = -1;
+
+            while (scanner.hasNextLine()) {
+                String[] line = scanner.nextLine().split(":");
+
+                if(line[0].equals("name")) { this.name = line[1]; }
+                else if(line[0].equals("category")) {
+                    Category category = new Category(line[1]);
+                    categories.add(category);
+                    categoryindex++;
                 }
-                categories.add(category);
+                else {
+                    Item item = new Item(line[0], Integer.parseInt(line[1]));
+                    categories.get(categoryindex).add(item);
+                }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static Data getData() {
@@ -55,4 +65,6 @@ public class Data {
     public Category getCategory(int index) {
         return categories.get(index);
     }
+
+    public String getName() { return this.name; }
 }

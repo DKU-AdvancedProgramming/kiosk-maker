@@ -1,9 +1,15 @@
+<<<<<<< Updated upstream
 import data.Data;
 import panels.*;
 import java.awt.*;
+=======
+
+>>>>>>> Stashed changes
 import java.io.File;
 import javax.swing.*;
+import panels.Kiosk;
 
+<<<<<<< Updated upstream
 //프로젝트 설계도 제안안
 public class KioskMaker extends JFrame{
     private JPanel list, menu, order, category;
@@ -44,5 +50,13 @@ public class KioskMaker extends JFrame{
         File file = new File("Gimbap.txt의 위치");
         Data.setData(file);
         new KioskMaker();
+=======
+public class KioskMaker {
+    public static void main(String[] args) {
+        try{
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch(Exception e) { e.printStackTrace(); }
+        new Kiosk(new File("info\\Gimbap.txt"));
+>>>>>>> Stashed changes
     }
 }
