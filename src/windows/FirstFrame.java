@@ -16,7 +16,7 @@ public class FirstFrame extends JFrame { //포장 매장
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setBackground(Color.WHITE);
-		setSize(350,400);
+		setSize(350,390);
 		setLayout(null);
 		GUI_Set();
 		setImageAndFont();
