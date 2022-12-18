@@ -43,6 +43,8 @@ public class PaymentDialog extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 curr_bill.setPriceSum();
+                UIManager.put("OptionPane.messageFont", new Font("NanumGothic", Font.PLAIN, 14));
+                UIManager.put("OptionPane.buttonFont", new Font("NanumGothic", Font.PLAIN, 12));
                 String text = String.format("총 주문금액: %d원\n주문하시겠습니까?", curr_bill.totalPriceSum);
                 int option = JOptionPane.showConfirmDialog(null, text, "결제 확인", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if(option == JOptionPane.OK_OPTION){
