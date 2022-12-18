@@ -69,10 +69,25 @@ public class FirstFrame extends JFrame { //포장 매장
 		add(toGo);
 		add(colorLabel2);
 	}
-		
+
 	void setImageAndFont() {
-		//textLabel.setFont();
-		//foreHere.setFont();
-		//toGo.setFont();
+		forHere.setLayout(new BorderLayout());
+		toGo.setLayout(new BorderLayout());
+		ImageIcon i1 = new ImageIcon("매장.jpg");
+		ImageIcon i2 = new ImageIcon("포장.jpg");
+
+		JLabel l1 = new JLabel(i1);
+		JLabel l2 = new JLabel(i2);
+		forHere.add(l1, BorderLayout.NORTH);
+		toGo.add(l2, BorderLayout.NORTH);
+
+		JLabel t1 = new JLabel("      매장");
+		JLabel t2 = new JLabel("      포장");
+
+		t1.setFont(new Font("NanumGothic", Font.PLAIN, 16));
+		t2.setFont(new Font("NanumGothic", Font.PLAIN, 16));
+		forHere.add(t1, BorderLayout.SOUTH);
+		toGo.add(t2, BorderLayout.SOUTH);
+
 	}
 }
