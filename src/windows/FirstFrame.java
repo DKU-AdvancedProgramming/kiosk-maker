@@ -37,8 +37,8 @@ public class FirstFrame extends JFrame { //포장 매장
 		colorLabel1.setLocation(0,50);
 	
 		
-		forHere = new JButton("매장");
-		toGo = new JButton("포장");
+		forHere = new JButton();
+		toGo = new JButton();
 
 		forHere.setLocation(45,200);
 		forHere.setSize(120,200);
@@ -77,10 +77,13 @@ public class FirstFrame extends JFrame { //포장 매장
 		ImageIcon i1 = new ImageIcon("매장.jpg");
 		ImageIcon i2 = new ImageIcon("포장.jpg");
 
-		JLabel l1 = new JLabel(i1);
-		JLabel l2 = new JLabel(i2);
-		forHere.add(l1, BorderLayout.NORTH);
-		toGo.add(l2, BorderLayout.NORTH);
+		Image i11 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		Image i22 = i2.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+
+		JLabel l1 = new JLabel(new ImageIcon(i11));
+		JLabel l2 = new JLabel(new ImageIcon(i22));
+		forHere.add(l1, BorderLayout.CENTER);
+		toGo.add(l2, BorderLayout.CENTER);
 
 		JLabel t1 = new JLabel("      매장");
 		JLabel t2 = new JLabel("      포장");
