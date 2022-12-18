@@ -16,7 +16,7 @@ public class FirstFrame extends JFrame { //포장 매장
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setBackground(Color.WHITE);
-		setSize(350,775);
+		setSize(350,480);
 		setLayout(null);
 		GUI_Set();
 		setImageAndFont();
@@ -28,19 +28,19 @@ public class FirstFrame extends JFrame { //포장 매장
 	void GUI_Set() {
 		textLabel = new JLabel("식사하실 장소를 선택해 주세요");
 		textLabel.setFont(new Font("NanumGothic", Font.PLAIN, 16));
-		textLabel.setLocation(65,80);
+		textLabel.setLocation(65,30);
 		textLabel.setSize(365,100);
 		colorLabel1 = new JLabel();
 		colorLabel1.setOpaque(true);
 		colorLabel1.setBackground(Color.ORANGE);
 		colorLabel1.setSize(365,10);
-		colorLabel1.setLocation(0,50);
+		colorLabel1.setLocation(0,30);
 	
 		
 		forHere = new JButton("매장");
 		toGo = new JButton("포장");
 
-		forHere.setLocation(45,200);
+		forHere.setLocation(30,150);
 		forHere.setSize(120,200);
 		forHere.addActionListener(e -> {
 			File file = new File("Gimbap.txt");
@@ -49,7 +49,7 @@ public class FirstFrame extends JFrame { //포장 매장
 			setVisible(false);});
 		forHere.setBackground(Color.ORANGE);
 
-		toGo.setLocation(190,200);
+		toGo.setLocation(190,150);
 		toGo.setSize(120,200);
 		toGo.addActionListener(e -> {
 			File file = new File("Gimbap.txt");
@@ -62,7 +62,7 @@ public class FirstFrame extends JFrame { //포장 매장
 		colorLabel2.setOpaque(true);
 		colorLabel2.setBackground(Color.ORANGE);
 		colorLabel2.setSize(365,10);
-		colorLabel2.setLocation(0,530);
+		colorLabel2.setLocation(0,400);
 		
 		add(colorLabel1);
 		add(textLabel);
