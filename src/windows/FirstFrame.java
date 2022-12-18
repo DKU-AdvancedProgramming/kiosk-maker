@@ -75,8 +75,4 @@ public class FirstFrame extends JFrame { //포장 매장
 		//foreHere.setFont();
 		//toGo.setFont();
 	}
-
-	public static void main(String[] args) {
-		Panels.startKiosk();
-	}
 }
