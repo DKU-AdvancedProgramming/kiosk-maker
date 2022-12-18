@@ -1,5 +1,6 @@
 package panels;
 
+import components.ItemPricePanel;
 import components.MenuButton;
 import panels.order.BillPanel;
 import windows.*;

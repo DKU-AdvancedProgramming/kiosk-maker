@@ -1,6 +1,6 @@
 package panels.order;
 
-import panels.ItemPricePanel;
+import components.ItemPricePanel;
 
 import javax.swing.*;
 import java.awt.*;
